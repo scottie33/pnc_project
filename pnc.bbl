@@ -1,0 +1,106 @@
+\begin{thebibliography}{14}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{ }
+
+\bibitem[Kutvonen et~al.(2012{\natexlab{a}})Kutvonen, Rossi, Puisto, Rostedt,
+  and Ala-Nissila]{Kutvonen2012}
+Kutvonen, A., G.~Rossi, S.~R. Puisto, N.~K.~J. Rostedt, and T.~Ala-Nissila,
+  2012.
+\newblock {Influence of nanoparticle size, loading, and shape on the mechanical
+  properties of polymer nanocomposites.}
+\newblock \emph{The Journal of chemical physics} 137:214901.
+\newblock \urlprefix\url{http://www.ncbi.nlm.nih.gov/pubmed/23231257}.
+
+\bibitem[Humphrey et~al.(1996)Humphrey, Dalke, and Schulten]{Humphrey1996a}
+Humphrey, W., A.~Dalke, and K.~Schulten, 1996.
+\newblock {VMD: visual molecular dynamics}.
+\newblock \emph{Journal of molecular graphics} 14:33--38.
+\newblock
+  \urlprefix\url{http://www.sciencedirect.com/science/article/pii/0263785596000185}.
+
+\bibitem[Plimpton(1995)]{Plimpton1995}
+Plimpton, S., 1995.
+\newblock {Fast Parallel Algorithms for Short – Range Molecular Dynamics}.
+\newblock \emph{Journal of computational Physics} 117:1--19.
+
+\bibitem[Yoon et~al.(2002)Yoon, Fornes, and Paul]{Yoon2002}
+Yoon, P., T.~Fornes, and D.~Paul, 2002.
+\newblock {Thermal expansion behavior of nylon 6 nanocomposites}.
+\newblock \emph{Polymer} 43:6727--6741.
+\newblock
+  \urlprefix\url{http://linkinghub.elsevier.com/retrieve/pii/S0032386102006389}.
+
+\bibitem[Chapman and Mulvaney(2001)]{Chapman2001}
+Chapman, R., and P.~Mulvaney, 2001.
+\newblock {Electro-optical shifts in silver nanoparticle ® lms}.
+\newblock \emph{Chemical Physics Letters} 349:358--362.
+
+\bibitem[Schmidt and Malwitz(2003)]{Schmidt2003}
+Schmidt, G., and M.~M. Malwitz, 2003.
+\newblock {Properties of polymer–nanoparticle composites}.
+\newblock \emph{Current Opinion in Colloid \& Interface Science} 8:103--108.
+\newblock
+  \urlprefix\url{http://linkinghub.elsevier.com/retrieve/pii/S1359029403000086}.
+
+\bibitem[Gersappe(2002)]{Gersappe2002}
+Gersappe, D., 2002.
+\newblock {Molecular Mechanisms of Failure in Polymer Nanocomposites}.
+\newblock \emph{Physical Review Letters} 89:058301.
+\newblock
+  \urlprefix\url{http://link.aps.org/doi/10.1103/PhysRevLett.89.058301}.
+
+\bibitem[Kutvonen et~al.(2012{\natexlab{b}})Kutvonen, Rossi, and
+  Ala-Nissila]{Kutvonen2012a}
+Kutvonen, A., G.~Rossi, and T.~Ala-Nissila, 2012.
+\newblock {Correlations between mechanical, structural, and dynamical
+  properties of polymer nanocomposites}.
+\newblock \emph{Physical Review E} 85:041803.
+\newblock \urlprefix\url{http://link.aps.org/doi/10.1103/PhysRevE.85.041803}.
+
+\bibitem[Liu et~al.(2011)Liu, Wu, Zhang, Wang, and Cao]{Liu2011a}
+Liu, J., S.~Wu, L.~Zhang, W.~Wang, and D.~Cao, 2011.
+\newblock {Molecular dynamics simulation for insight into microscopic mechanism
+  of polymer reinforcement.}
+\newblock \emph{Physical chemistry chemical physics : PCCP} 13:518--29.
+\newblock \urlprefix\url{http://www.ncbi.nlm.nih.gov/pubmed/21052606}.
+
+\bibitem[Allegra et~al.(2008)Allegra, Raos, and Vacatello]{Allegra2008}
+Allegra, G., G.~Raos, and M.~Vacatello, 2008.
+\newblock {Theories and simulations of polymer-based nanocomposites: From chain
+  statistics to reinforcement}.
+\newblock \emph{Progress in Polymer Science} 33:683--731.
+\newblock
+  \urlprefix\url{http://linkinghub.elsevier.com/retrieve/pii/S007967000800021X}.
+
+\bibitem[Brown et~al.(2008)Brown, Marcadon, M\'{e}l\'{e}, and
+  Alb\'{e}rola]{Brown2008}
+Brown, D., V.~Marcadon, P.~M\'{e}l\'{e}, and N.~D. Alb\'{e}rola, 2008.
+\newblock {Effect of Filler Particle Size on the Properties of Model
+  Nanocomposites}.
+\newblock \emph{Macromolecules} 41:1499--1511.
+\newblock \urlprefix\url{http://pubs.acs.org/doi/abs/10.1021/ma701940j}.
+
+\bibitem[Brown et~al.(2003)Brown, M\'{e}l\'{e}, Marceau, and
+  Alb\'{e}rola]{Brown2003}
+Brown, D., P.~M\'{e}l\'{e}, S.~Marceau, and N.~D. Alb\'{e}rola, 2003.
+\newblock {A Molecular Dynamics Study of a Model Nanoparticle Embedded in a
+  Polymer Matrix}.
+\newblock \emph{Macromolecules} 36:1395--1406.
+\newblock \urlprefix\url{http://pubs.acs.org/doi/abs/10.1021/ma020951s}.
+
+\bibitem[Wu et~al.(2011)Wu, Huang, Wang, He, and Lei]{Wu2011}
+Wu, J., G.~Huang, X.~Wang, X.~He, and H.~Lei, 2011.
+\newblock {Molecular dynamics in chlorinated butyl rubber containing
+  organophilic montmorillonite nanoparticles}.
+\newblock \emph{Journal of Polymer Research} 18:2213--2220.
+\newblock \urlprefix\url{http://link.springer.com/10.1007/s10965-011-9632-4}.
+
+\bibitem[Hussain(2006)]{Hussain2006}
+Hussain, F., 2006.
+\newblock {Review article: Polymer-matrix Nanocomposites, Processing,
+  Manufacturing, and Application: An Overview}.
+\newblock \emph{Journal of Composite Materials} 40:1511--1575.
+\newblock
+  \urlprefix\url{http://jcm.sagepub.com/cgi/doi/10.1177/0021998306067321}.
+
+\end{thebibliography}

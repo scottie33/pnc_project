@@ -1,0 +1,215 @@
+% Template for BJ paper in LaTeX (Jan Hrabe, NKI, 05/16/2005)
+%
+% To compile into a document, run
+% latex bj_latex_template
+% bibtex bj_latex_template
+% latex bj_latex_template (run 2-3 times repeatedly)
+% dvips bj_latex_template.dvi
+%
+% or replace the latex command by the pdflatex command in the lines above to
+% generate a PDF file and use acroread or xpdf for viewing and
+% printing instead of the postscript generating program dvips
+
+% Use standard article document class with slightly bigger font and 
+% a separate title page
+%\documentclass[11pt,titlepage]{article}
+\documentclass[12pt,letterpage]{article}
+\usepackage{graphics,tabularx,subfigure,color,calc,verbatim,epsfig,fullpage,authblk,appendix}
+\usepackage[normalem]{ulem}
+%\usepackage{wrapfig}
+
+% Packages to load (all standard on a modern LaTeX system on Linux)
+
+% Make doublespaced ugly typography required for mysterious 
+% reasons by most journals - comment out for normal output
+\usepackage{setspace} 
+%\doublespacing
+
+% AMS-Math package to have nice multi-line equations and other goodies
+\usepackage{amsmath}
+
+% Show labels for easy orientation, comment out for final version
+% \usepackage{showlabels}
+
+% EPS/PDF graphics
+% Place figures in the document directory in both the EPS and PDF
+% formats, e.g., fig_1.eps and fig_1.pdf. Use the includegraphics
+% command without file extension, e.g. \includegraphics*[width=3.25in]{fig_1}
+% The pdflatex or latex programs then work automagically with the 
+% appropriate formats.  EPS figures can be converted to PDF using
+% the epstopdf program present on most Linux disributions
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{arrows,chains,matrix,positioning,scopes}
+% Following packages are used to include hyper link in file.
+\usepackage{xcolor}
+\usepackage[colorlinks,
+            linkcolor=blue,
+            anchorcolor=green,
+            citecolor=purple]{hyperref}
+\usepackage{threeparttable}
+\usepackage{listings}
+% Citation style in the text: numbers in parenthesis, sorted by their
+% order in the list of references.
+% Uses a range if possible: (1-3), not (1,2,3)
+\usepackage[round,numbers,sort&compress]{natbib} 
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{20.5cm}
+\setlength{\oddsidemargin}{0.0cm}
+\setlength{\topmargin}{0 cm}
+
+% Numbering style in the list of references: a number followed by a period
+%\renewcommand{\bibnumfmt}[1]{#1.}
+\makeatletter
+\renewcommand\@biblabel[1]{#1.}
+\makeatother
+
+\makeatletter
+\def\@cite#1#2{$()#1\if@tempswa , #2\fi$}
+\makeatother
+% Examples of special definitions (amsmath package required)
+\newcommand{\erf}{\operatorname{erf}}        % error function
+\newcommand{\erfc}{\operatorname{erfc}}      % complementary error function
+\newcommand{\BibTeX}{\textsc{Bib}\TeX}       % corect BibTeX appearance
+
+\def\chapdir{chapter}
+\def\bibstldir{.}
+\def\bibdir{.}
+
+\title{Molecular Dynamics Investigation of the Compression and Shearing of Polymer Nano-Composite Systems}
+
+\iffalse 
+\author{Lei~Wang\thanks{
+           Haojun Liang.  Address:
+           Polymer Science and Engineering,
+	       Department of Chemistry, ,
+	   Hefei, Anhui~230026, P.R.China,
+	   Tel.:~(+86)551-3600240, Fax:~(+86)000-0000} \\
+	Department of Chemistry, \\
+	University of Science and Technology of China, Hefei, Anhui 
+	\and Xueqing Zou \\
+	Department of Biology, \\
+	Beckmann Institute, Urbana, Illinois}
+
+% Revision date - uncomment to exclude date in the final version
+%\date{}
+
+% Running head
+\pagestyle{myheadings}
+\markright{Short paper title}
+\fi
+
+\author[$^{\dag}$]{Ningning Lin}
+\author[$^{\dag}$]{Wang Lei}
+\author[$^{\dag}$]{Yuan Liu}
+\author[,$^{\dag}$]{Haojun Lian \footnote{To whom correspondence should be addressed. E-mail: hjliang@ustc.edu.cn; Phone: +86-551-3607824; Fax: +86-551-3607824}}
+
+\affil[$^{\dag}$]{University of Science and Technology of China, Hefei, Anhui, China}
+%\affil[$^{\S}$]{Applied Physics and Center for NanoScience, Ludwig-Maximilians-Universit\"{a}t M\"{u}nchen, Munich, Germany}
+%\affil[$^{\P}$]{Department of Mathematics, University of Illinois, Urbana, Illinois, USA}
+
+% We are done with the headers, the actual document starts here
+\begin{document}
+%\singlespace
+% generate the title page from the info in the headers above
+\maketitle
+
+% 200 words max Abstract
+\abstract{
+\input{\chapdir/abstract}
+}
+
+% New page
+\clearpage
+
+\section*{Introduction}
+\input{\chapdir/intro}
+\iffalse
+Citations are made using the \emph{citep} command, e.g., one paper
+\citep{el-Kareh_etal93} or more papers
+\citep{el-Kareh_etal93,Chen_Nicholson00}.  It works fine with a single
+author, two authors, or more.  Books are cited in the same way
+\citep{Callaghan91}, book chapters as well \citep{Stiles_Bartol01},
+including a chapter in press \citep{Stiles_etal04}.  Abstracts can be
+handled too \citep{Tao_etal02}.  Pages can be included in a citation
+\citep[pp.~12--18]{Callaghan91}.  Citations in a text form (i.e., author 
+name followed by the usual reference number in parenthesis) can be 
+done using the \emph{citet} command, e.g., ``an approach used 
+by \citet{el-Kareh_etal93}''.
+\fi
+\clearpage
+
+\section*{Theory}
+\input{\chapdir/theory}
+\iffalse
+Text can reference Eq.~\ref{eqn:symmetry}
+\begin{equation} \label{eqn:symmetry}
+   \Phi(\vec{r}) = \Phi(-\vec{r})
+\end{equation}
+anywhere, as long as it is numbered.
+\fi
+\clearpage
+
+\section*{Methods}
+\input{\chapdir/methods}
+\clearpage
+
+\section*{Results}
+\input{\chapdir/results}
+\clearpage
+
+\section*{Discussion}
+\input{\chapdir/discuss}
+\clearpage
+
+\begin{appendix}
+%\chapter{appendix1}
+\input{\chapdir/appendix}
+\clearpage
+%\chapter{app2}
+\end{appendix}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% Figure legends
+\iffalse
+\section{Figure Legends}
+\subsubsection{no Figure}%~\ref{fig:result_fig}.}
+Figure legend here.
+% Figures, one per page (fig_1.eps and fig_1.pdf files must be present
+% in the document directory)
+
+\begin{figure}
+   \begin{center}
+      \includegraphics*[width=3.25in]{fig_1}
+      \caption{}
+      \label{fig:result_fig}
+   \end{center}
+\end{figure}
+
+\clearpage
+
+\fi
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%
+%\section*{Supplementary Material}
+%\input{supp}
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%
+%\section*{Reply to the Referee}
+%\input{Reply}
+% Compile and format the bibliography (bj_bibtex_template.bib BibTeX
+% file must be present in the document directory)
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% Bibliography style (requires the style file biophysj.bst in the 
+% document directory)
+\bibliographystyle{\bibstldir/biophysj}
+\bibliography{\bibdir/pnc}
+
+
+% closing statement, nothing below matters
+\end{document}

@@ -1,0 +1,146 @@
+% Under Creative Commons Attribution licence 3.0
+% (http://creativecommons.org/licences/by/3.0)
+% Author: Florian Lesaint
+\documentclass[landscape]{article}
+\usepackage{tikz}
+%%%<
+\usepackage{verbatim}
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{10pt}%
+%%%>
+\begin{comment}
+:Title: Cuboid in a 2 vanishing points perspective
+:Tags: 3D;Geometry;Mathematics
+:Author: Florian Lesaint
+:Slug: cuboid
+
+This code draws a cuboid using a 2 vanishing points perspective.
+Within the code, parameters can be revised to tune the drawing.
+\end{comment}
+\usetikzlibrary{calc}
+
+%\newcount\mycount
+\begin{document}
+\begin{tikzpicture}
+	%%% Edit the following coordinate to change the shape of your
+	%%% cuboid
+      
+	%% Vanishing points for perspective handling
+	\coordinate (P1) at (-7cm,1.5cm); % left vanishing point (To pick)
+	\coordinate (P2) at (8cm,1.5cm); % right vanishing point (To pick)
+	\coordinate (P3) at (-7cm,-3cm); % left vanishing point (To pick)
+	\coordinate (P4) at (-1cm,8cm); % right vanishing point (To pick)
+
+	%% (B1) and (B2) defines the 2 central points of the cuboid
+	\coordinate (B1) at (0em,0cm); % central top point (To pick)
+	\coordinate (B2) at (0em,-2cm); % central bottom point (To pick)
+
+	%% (A2) to (A8) are computed given a unique parameter (or 2) .8
+	% You can vary .8 from 0 to 1 to change perspective on left side
+	\coordinate (A2) at ($(P1)!.8!(B2)$); % To pick for perspective point 2
+	\coordinate (A1) at ($(P1)!.7!(B1)$); % point 1
+
+	% You can vary .8 from 0 to 1 to change perspective on right side
+	\coordinate (A4) at ($(P2)!.7!(B2)$); % point 4
+	\coordinate (A8) at ($(P2)!.7!(B1)$); 
+
+	%% Automatically compute the last 2 points with intersections
+	\coordinate (A5) at
+	  (intersection cs: first line={(A8) -- (P1)},
+			    second line={(A1) -- (P2)});
+	\coordinate (A3) at
+	  (intersection cs: first line={(A4) -- (P1)}, 
+			    second line={(A2) -- (P2)}); % point 3
+
+	%%% Depending of what you want to display, you can comment/edit
+	%%% the following lines
+
+	%% Possibly draw back faces
+
+	\fill[gray!90] (B2) -- (A2) -- (A3) -- (A4) -- cycle; % face 6
+	%\node at (barycentric cs:B2=1,A2=1,A3=1,A4=1) {\tiny n2};
+	
+	\fill[gray!50] (A2) -- (A1) -- (A5) -- (A3) -- cycle; % face 3
+	%\node at (barycentric cs:A2=1,A1=1,A5=1,A3=1) {\tiny n1};
+	
+	%\fill[gray!30] (A5) -- (A3) -- (A4) -- (A8) -- cycle; % face 4
+	%\node at (barycentric cs:A5=1,A3=1,A4=1,A8=1) {\tiny f4};
+	
+	%\draw[thick,dashed] (A5) -- (A3);
+	\draw[->][thick,solid] (A2) -- (A3);
+	\draw[->][thick,solid] (A3) -- (A4);
+
+	%% Possibly draw front faces
+
+	% \fill[orange] (B1) -- (A8) -- (A4) -- (B2) -- cycle; % face 1
+	% \node at (barycentric cs:B1=1,A8=1,A4=1,B2=1) {\tiny f1};
+	%\fill[gray!50,opacity=0.2] (B1) -- (B2) -- (A2) -- (A1) -- cycle; % f2
+	%\node at (barycentric cs:B1=1,B2=1,A2=1,A1=1) {\tiny f2};
+	%\fill[gray!90,opacity=0.2] (B1) -- (A1) -- (A5) -- (A8) -- cycle; % f5
+	%\node at (barycentric cs:B1=1,A1=1,A5=1,A8=1) {\tiny f5};
+
+	%% Possibly draw front lines
+	%\draw[thick] (B1) -- (B2);
+	\draw[->][thick,solid] (A1) -- (A2);
+	%\draw[thick] (A4) -- (A8);
+	%\draw[thick] (B1) -- (A1);
+	%\draw[thick] (B1) -- (A8);
+	%\draw[thick] (B2) -- (A2);
+	%\draw[thick] (B2) -- (A4);
+	%\draw[thick] (A1) -- (A5);
+	%\draw[thick] (A8) -- (A5);
+	
+	\coordinate (R1) at ($(A1)!.5!(A2)$); % To pick for perspective 
+	\coordinate (R2) at ($(A2)!.5!(A3)$);
+	\coordinate (R3) at ($(A3)!.5!(A4)$);
+	\coordinate (NS1) at (barycentric cs:A2=1,A1=1,A5=1,A3=1);
+	\coordinate (NS2) at (barycentric cs:B2=1,A2=1,A3=1,A4=1);
+	\coordinate (NE1) at ($(P3)!1.1!(NS1)$); % To pick for perspective 
+	\coordinate (t1) at ($(P3)!1.16!(NS1)$); % To pick for perspective 
+	\coordinate (NS12) at ($(P3)!1.105!(NS1)$); % To pick for perspective 
+	\coordinate (NE12) at ($(P3)!1.2!(NS1)$); % To pick for perspective 
+	\coordinate (NE2) at ($(P4)!1.05!(NS2)$);
+	\coordinate (t2) at ($(P4)!0.87!(NS2)$); % To pick for perspective 
+	\coordinate (NE22) at ($(P4)!0.78!(NS2)$); % To pick for perspective 
+	\draw[->][solid] (NS1) -- (NE1);
+	\draw[dashed] (NS12) -- (NE12);
+	\draw[->][dotted] (NS2) -- (NE2);
+	\draw[dashed] (NE22) -- (NS2);
+
+	\coordinate (CP) at
+	  (intersection cs: first line={(NE1) -- (NE12)}, 
+			    second line={(NS2) -- (NE22)});
+
+    %\draw[domain=0:90] (CP) circle (0.16); 
+    %\draw (t1) .. controls ($(CP)+(0.2,0.2)$) .. (t2);  
+    \draw[<->] ($(CP)+(-83:2mm)$) arc (-83:23:2mm);
+
+	\draw[fill=black] (A1) circle (0.05em)
+	    node[above right] {\tiny 1};
+	\draw[fill=black] (A3) circle (0.05em)
+	    node[above right] {\tiny 3};
+	\draw[fill=black] (A4) circle (0.05em)
+	    node[above right] {\tiny 4};
+	\draw[fill=black] (A2) circle (0.05em)
+	    node[above right] {\tiny 2};
+	\draw[fill=black] (R1) circle (0.025em)
+	    node[right] {\tiny r1};
+	\draw[fill=black] (R2) circle (0.025em)
+	    node[above] {\tiny r2};
+	\draw[fill=black] (R3) circle (0.025em)
+	    node[above right] {\tiny r3};
+	\draw[fill=black] (NS1) circle (0.05em)
+	    node[right] {\tiny n1};
+	\draw[fill=black] (NS2) circle (0.05em)
+	    node[below right] {\tiny n2};
+	\draw[fill=black] (CP) circle (0.05em)
+	    node[below right] {\tiny $\theta$};
+	%\draw[fill=black] (t1) circle (0.05em)
+	%    node[right] {\tiny x1};
+	%\draw[fill=black] (t2) circle (0.05em)
+	%    node[right] {\tiny x2};
+	% \draw[fill=black] (P1) circle (0.1em) node[below] {\tiny p1};
+	% \draw[fill=black] (P2) circle (0.1em) node[below] {\tiny p2};
+\end{tikzpicture}
+\end{document} 

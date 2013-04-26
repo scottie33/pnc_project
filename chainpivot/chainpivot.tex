@@ -1,0 +1,105 @@
+% Under Creative Commons Attribution licence 3.0
+% (http://creativecommons.org/licences/by/3.0)
+% Author: Florian Lesaint
+\documentclass[landscape]{article}
+\usepackage{tikz}
+%%%<
+\usepackage{verbatim}
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{10pt}%
+%%%>
+\begin{comment}
+:Title: Cuboid in a 2 vanishing points perspective
+:Tags: 3D;Geometry;Mathematics
+:Author: Florian Lesaint
+:Slug: cuboid
+
+This code draws a cuboid using a 2 vanishing points perspective.
+Within the code, parameters can be revised to tune the drawing.
+\end{comment}
+\usetikzlibrary{calc}
+
+%\newcount\mycount
+\begin{document}
+\begin{tikzpicture}
+	%%% Edit the following coordinate to change the shape of your
+	%%% cuboid
+      
+	%% Vanishing points for perspective handling
+    \coordinate (O) at (0cm,0cm); % left vanishing point (To pick)
+    \coordinate (Xn) at (-1cm,0cm); % right vanishing point (To pick)
+	\coordinate (Xp) at (1.5cm,0cm); % right vanishing point (To pick)
+	\coordinate (YV) at (-1.732cm,-1cm); % left vanishing point (To pick)
+	\coordinate (Yn) at ($(YV)!0.6!(O)$); % right vanishing point (To pick)
+	\coordinate (Yp) at ($(YV)!1.5!(O)$); % right vanishing point (To pick)
+	\coordinate (Zn) at (0cm,-1cm); % right vanishing point (To pick)
+	\coordinate (Zp) at (0cm,1.5cm); % right vanishing point (To pick)
+    
+    \draw[fill=black] (O) circle (0.01em) node[above left] {\tiny O};
+    \draw[->][thin,gray!80] (Xn) -- (Xp) node[right,gray] {\tiny x};
+    \draw[->][thin,gray!80] (Yn) -- (Yp) node[above] {\tiny y};
+    \draw[->][thin,gray!80] (Zn) -- (Zp) node[left] {\tiny z};
+
+    \coordinate (A) at (-1cm,-1cm); % left vanishing point (To pick)
+    \coordinate (B) at (1cm,1cm);
+    \coordinate (Bxy) at (1cm,0.3cm);
+    \coordinate (C) at (-0.5cm,0.5cm);
+    \coordinate (D) at (0cm,0cm);
+    \draw[solid,thick] (B) -- (A);
+    \draw[fill=black] (A) circle (0.05em) node[below left] {\tiny A};
+    \draw[solid,thick] (C) -- (B);
+    \draw[fill=black] (B) circle (0.05em) node[above] {\tiny B};
+    \draw[solid,thick] (A) -- (C);
+    \draw[fill=black] (C) circle (0.05em) node[left] {\tiny C};
+    \draw[fill=black] (D) circle (0.025em) node[below right] {\tiny D};
+    \draw[solid,gray!80] (C) -- (D);
+
+    \draw[<->][thick,gray] ($(O)+(45:4mm)$) arc (45:90:4mm) node[above right] {\tiny $\theta$};
+
+    \draw[solid,gray!80] (B) -- (Bxy);
+    \draw[solid,gray!80] (Bxy) -- (O);
+    \draw[<->][gray!80] ($(O)+(0:5mm)$) arc (0:17:5mm) node[right] {\tiny {$\phi$}};
+    
+    \coordinate (AC) at ($(A)!0.5!(C)$);
+    \draw[fill=black] (AC) circle (0.025em) node[left] {\tiny e};
+    \coordinate (BC) at ($(B)!0.5!(C)$);
+    \draw[fill=black] (BC) circle (0.025em) node[above] {\tiny f};
+    \coordinate (CD) at ($(C)!0.5!(D)$);
+    \draw[fill=black] (CD) circle (0.025em) node[right] {\tiny t};
+    \coordinate (AD) at ($(A)!0.5!(D)$);
+    \draw[fill=black] (AD) circle (0.025em) node[right] {\tiny g};
+	%%% Depending of what you want to display, you can comment/edit
+	%%% the following lines
+
+	%% Possibly draw back faces
+
+	%\fill[gray!90] (B2) -- (A2) -- (A3) -- (A4) -- cycle; % face 6
+	%\node at (barycentric cs:B2=1,A2=1,A3=1,A4=1) {\tiny n2};
+	%% Possibly draw front faces
+
+	% \fill[orange] (B1) -- (A8) -- (A4) -- (B2) -- cycle; % face 1
+	% \node at (barycentric cs:B1=1,A8=1,A4=1,B2=1) {\tiny f1};
+	%\fill[gray!50,opacity=0.2] (B1) -- (B2) -- (A2) -- (A1) -- cycle; % f2
+	%\node at (barycentric cs:B1=1,B2=1,A2=1,A1=1) {\tiny f2};
+	%\fill[gray!90,opacity=0.2] (B1) -- (A1) -- (A5) -- (A8) -- cycle; % f5
+	%\node at (barycentric cs:B1=1,A1=1,A5=1,A8=1) {\tiny f5};
+
+
+	%\coordinate (CP) at
+	%  (intersection cs: first line={(NE1) -- (NE12)}, 
+	%		    second line={(NS2) -- (NE22)});
+
+    %\draw[domain=0:90] (CP) circle (0.16); 
+    %\draw[<->] ($(CP)+(-83:2mm)$) arc (-83:23:2mm);
+
+	%\draw[fill=black] (A1) circle (0.05em)
+	%    node[above right] {\tiny 1};
+	%\draw[fill=black] (t1) circle (0.05em)
+	%    node[right] {\tiny x1};
+	%\draw[fill=black] (t2) circle (0.05em)
+	%    node[right] {\tiny x2};
+	% \draw[fill=black] (P1) circle (0.1em) node[below] {\tiny p1};
+	% \draw[fill=black] (P2) circle (0.1em) node[below] {\tiny p2};
+\end{tikzpicture}
+\end{document} 
